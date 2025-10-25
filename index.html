@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- <style> body { font-family: 'Inter', sans-serif; } </style> -->
+    <title>Portofolio</title>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <nav id="navbar" class="fixed w-full top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="#home" class="text-2xl font-bold text-emerald-600">Naufal Tri R.</a>
+            <ul id="dekstop-menu" class="hidden md:flex space-x-8">
+                <li><a href="#home" class="hover:text-emerald-600">Home</a></li>
+                <li><a href="#about" class="hover:text-emerald-600">Tentang</a></li>
+                <li><a href="#proyek" class="hover:text-emerald-600">Proyek</a></li>
+                <li><a href="#contact" class="hover:text-emerald-600">Kontak</a></li>
+            </ul>
+            <button id="hamburger-btn" class="md:hidden z-50">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center bg-gray-100/50 pt-24 md:pt-0">
+        <div class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 px-6">
+            <!-- Teks Nama -->
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-gray-900">
+                    Hai, Saya <br class="hidden md:block"><span class="text-emerald-600">Naufal Tri</span>
+                </h2>
+                <p class="text-lg md:text-2xl mb-8 font-medium text-gray-700">
+                    <span id="typing-effect"></span>
+                </p>
+                <a href="#projects"
+                    class="inline-block bg-emerald-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-white hover:text-emerald-700 transform transition-transform duration-300">Lihat
+                    Portofolio Saya</a>
+            </div>
+            <!-- Gambar Profil -->
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0 bg-emerald-200 rounded-full blur-1xl opacity-100    ">
+                        <img src="foto/prof.png" alt="Foto Profil" srcset=""
+                            class="relative rounded-full shadow-2xl border-8 border-white w-full h-full object-cover">
+                        <!-- <img src="https://placehold.co/400x400/FFFFFF/00b894?text=NTR" alt="Foto Profil" srcset="" class="relative rounded-full shadow-2xl border-8 border-white w-full h-full object-cover"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center mb-16">Tentang Saya</h3>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="foto/white-cloud.jpg" alt="Gambar tentang saya"
+                        class="rounded-2xl shadow-xl w-full h-auto" />
+                </div>
+
+                <div>
+                    <p class="text-lg leading-relaxed mb-6 text-gray-600">
+                        Saya adalah seorang pengembang web & mobile dengan hasrat untuk menciptakan aplikasi yang
+                        modern, responsif, dan fungsional. Saya percaya bahwa teknologi dapat memecahkan masalah nyata
+                        dan saya selalu antusias untuk belajar hal baru.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-8 text-gray-600">
+                        Dengan pengalaman dalam berbagai tumpukan teknologi, saya fokus pada penulisan kode yang bersih
+                        dan efisien untuk memberikan pengalaman pengguna terbaik.
+                    </p>
+                    <h4 class="text-2xl font-semibold mb-4">Keahlian Saya</h4>
+                    <div class="flex flex-wrap gap-4">
+                        <span
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i
+                                data-lucide="figma" class="w-5 h-5 text-emerald-500"></i>Figma</span>
+                        <span
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i
+                                data-lucide="smartphone" class="w-5 h-5 text-emerald-500"></i>Flutter</span>
+                        <span
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i
+                                data-lucide="server" class="w-5 h-5 text-emerald-500"></i>Laravel</span>
+                        <span
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i
+                                data-lucide="wind" class="w-5 h-5 text-emerald-500"></i>Tailwind CSS</span>
+                        <span
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i
+                                data-lucide="database" class="w-5 h-5 text-emerald-500"></i>MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-gray-50/50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center mb-16">Hubungi Saya</h3>
+            <div
+                class="max-w-2xl mx-auto bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
+                <form class="space-y-6">
+                    <div class="relative">
+                        <i data-lucide="user"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <input type="text" placeholder="Nama Lengkap"
+                            class="w-full p-4 pl-12 border border-gray-300 rounded-lg focus:ring-teal-500 outline-none transaction"
+                            id="">
+                    </div>
+                    <div class="relative">
+                        <i data-lucide="mail"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <input type="email" placeholder="Alamat Email"
+                            class="w-full p-4 pl-12 border border-gray-300 rounded-lg focus:ring-teal-500 outline-none transaction"
+                            id="">
+                    </div>
+                    <div class="relative">
+                        <i data-lucide="message-square"
+                            class="absolute left-4 top-7 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <textarea placeholder="Pesan Anda"
+                            class="w-full p-4 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none h-40 transition"></textarea>
+                    </div>
+                    <button
+                        class="w-full flex items-center justify-center gap-2 bg-teal-600 text-white py-4 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-300 shadow-lg">
+                        Kirim Pesan <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h3 class="section-title text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                Proyek Terbaru
+            </h3>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Kartu 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300"
+                    data-aos="zoom-in-down">
+                    <div class="relative">
+                        <img src="foto/mu.jpg" alt="Gambar Proyek 1" class="w-full h-52 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href=""
+                                class="text-white bg-[#00B894] px-4 py-2 rounded-full font-semibold">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold mb-2">Sistem E-Learning</h4>
+                        <p class="text-gray-600 mb-4">Platform belajar online interaktif dengan manajemen kursus dan
+                            pelacakan kemajuan siswa.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Flutter</span>
+                            <span class="text-sm bg-red-100 text-red-700 px-3 py-1 rounded-full">Laravel</span>
+                            <span class="text-sm bg-orange-100 text-orange-700 px-3 py-1 rounded-full">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartu 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300"
+                    data-aos="zoom-in-down">
+                    <div class="relative">
+                        <img src="foto/mu.jpg" alt="Gambar Proyek 1" class="w-full h-52 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href=""
+                                class="text-white bg-[#00B894] px-4 py-2 rounded-full font-semibold">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold mb-2">Aplikasi E-Perpustakaan</h4>
+                        <p class="text-gray-600 mb-4">Platform belajar online interaktif dengan manajemen kursus dan
+                            pelacakan kemajuan siswa.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-sm bg-blue-100 text-green-700 px-3 py-1 rounded-full">vue.js</span>
+                            <span class="text-sm bg-red-100 text-red-700 px-3 py-1 rounded-full">Laravel</span>
+                            <span class="text-sm bg-orange-100 text-cyan-700 px-3 py-1 rounded-full">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartu 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300"
+                    data-aos="zoom-in-down">
+                    <div class="relative">
+                        <img src="foto/mu.jpg" alt="Gambar Proyek 1" class="w-full h-52 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href=""
+                                class="text-white bg-[#00B894] px-4 py-2 rounded-full font-semibold">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold mb-2">Desain UI/UX Mobile Banking</h4>
+                        <p class="text-gray-600 mb-4">Prototipe desain antarmuka aplikasi mobile banking yang modern
+                            dan mudah digunakan.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-sm bg-blue-100 text-green-700 px-3 py-1 rounded-full">Figma</span>
+                            <span class="text-sm bg-red-100 text-purple-700 px-3 py-1 rounded-full">Framer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto py-10 px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-teal-400 transition"><i data-lucide="github"
+                        class="w-7 h-7"></i></a>
+                <a href="#" class="hover:text-teal-400 transition"><i data-lucide="linkedin"
+                        class="w-7 h-7"></i></a>
+                <a href="#" class="hover:text-teal-400 transition"><i data-lucide="instagram"
+                        class="w-7 h-7"></i></a>
+            </div>
+            <p>&copy; 2025 NamaAnda. Dibuat dengan santuy di Kelas Reguler Himasi.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // durasi animasi
+        once: true, // animasi hanya terjadi sekali
+    });
+</script>
+<script>
+    lucide.createIcons(); // Re-render icon
+
+    const typingElement = document.getElementById('typing-effect');
+    const roles = ["Mahasiswa UBSI", "Web & Mobile Developer", "UI/UX Designer"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+        let displaytext = '';
+
+        if (isDeleting) {
+            displaytext = currentRole.substring(0, charIndex - 1)
+            charIndex--;
+        } else {
+            displaytext = currentRole.substring(0, charIndex + 1)
+            charIndex++;
+        }
+
+        typingElement.textContent = displaytext;
+        typingElement.style.borderRight = '3px solid oklch(59.6% 0.145 163.225)';
+
+        let typeSpeed = 200;
+        if (isDeleting) typeSpeed /= 2;
+
+        if (!isDeleting && charIndex == currentRole.length) {
+            typeSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed)
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typingElement) {
+            type();
+        }
+    });
+</script>
