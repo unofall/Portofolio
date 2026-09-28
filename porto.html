@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naufal Tri Ramadhani | Comic Portfolio</title>
+  <!-- Google Fonts: Bangers for comic titles, Poppins for clean modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            comicYellow: '#FFD400',
+            comicRed: '#FF4D4D',
+            comicBlue: '#2563EB',
+            comicCyan: '#06B6D4',
+            comicDark: '#111111',
+            comicPaper: '#FFF9E6',
+            comicMuted: '#6B7280',
+          },
+          fontFamily: {
+            comic: ['Bangers', 'cursive'],
+            body: ['Poppins', 'sans-serif'],
+          },
+          boxShadow: {
+            'comic-sm': '3px 3px 0px #111111',
+            'comic': '5px 5px 0px #111111',
+            'comic-lg': '8px 8px 0px #111111',
+            'comic-xl': '12px 12px 0px #111111',
+            'comic-red': '6px 6px 0px #FF4D4D',
+            'comic-blue': '6px 6px 0px #2563EB',
+            'comic-yellow': '6px 6px 0px #FFD400',
+          },
+          keyframes: {
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-10px) rotate(2deg)' },
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.8' },
+            }
+          },
+          animation: {
+            floatSlow: 'floatSlow 4s ease-in-out infinite',
+            floatDelayed: 'floatSlow 4.5s ease-in-out 1.5s infinite',
+            wiggle: 'wiggle 2s ease-in-out infinite',
+            pulseGlow: 'pulseGlow 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Halftone Dot Matrix Pattern */
+    .bg-halftone-pattern {
+      background-image: radial-gradient(#111111 15%, transparent 16%);
+      background-size: 16px 16px;
+      opacity: 0.08;
+    }
+    .bg-halftone-dots-red {
+      background-image: radial-gradient(#FF4D4D 18%, transparent 19%);
+      background-size: 14px 14px;
+    }
+    .bg-halftone-dots-blue {
+      background-image: radial-gradient(#2563EB 18%, transparent 19%);
+      background-size: 14px 14px;
+    }
+    .bg-halftone-dots-yellow {
+      background-image: radial-gradient(#FFD400 25%, transparent 26%);
+      background-size: 12px 12px;
+    }
+
+    /* Speed Lines / Action Sunburst Background */
+    .action-lines {
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(255, 212, 0, 0.15) 0deg 8deg,
+        transparent 8deg 16deg
+      );
+    }
+
+    /* Diagonal Comic Stripe Pattern */
+    .comic-stripes {
+      background: repeating-linear-gradient(
+        -45deg,
+        #111111,
+        #111111 8px,
+        #FFD400 8px,
+        #FFD400 16px
+      );
+    }
+    .comic-stripes-subtle {
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(17,17,17,0.04),
+        rgba(17,17,17,0.04) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+    }
+
+    /* Speech Bubble Tail Styles */
+    .speech-tail-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 16px 16px 0 0;
+      border-color: #FFFFFF transparent transparent transparent;
+      filter: drop-shadow(0 4px 0 #111111);
+    }
+    .speech-tail-left::after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: -18px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 18px 12px 0;
+      border-color: transparent #FFFFFF transparent transparent;
+      filter: drop-shadow(-3px 0 0 #111111);
+    }
+
+    /* Comic Onomatopoeia Badge */
+    .comic-badge {
+      font-family: 'Bangers', cursive;
+      letter-spacing: 0.05em;
+      text-shadow: 2px 2px 0 #111111;
+      transform: rotate(-6deg);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .comic-badge:hover {
+      transform: scale(1.15) rotate(4deg);
+    }
+
+    /* Comic Border Standard */
+    .comic-border {
+      border: 3.5px solid #111111;
+    }
+    .comic-border-thick {
+      border: 4.5px solid #111111;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF9E6;
+      border-left: 3px solid #111111;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FFD400;
+      border: 2px solid #111111;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FF4D4D;
+    }
+  </style>
+</head>
+<body class="bg-comicPaper text-comicDark font-body antialiased relative selection:bg-comicYellow selection:text-comicDark overflow-x-hidden">
+
+  <!-- Subtle Full-Page Halftone Texture Overlay -->
+  <div class="fixed inset-0 bg-halftone-pattern pointer-events-none z-0"></div>
+
+  <!-- ======================================================== -->
+  <!-- STICKY NAVBAR -->
+  <!-- ======================================================== -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo as Comic Action Box -->
+      <a href="#home" class="group flex items-center gap-2">
+        <div class="bg-comicYellow comic-border px-3.5 py-1.5 rounded-lg shadow-comic group-hover:shadow-comic-lg group-hover:-translate-y-0.5 group-hover:bg-comicRed transition-all duration-200">
+          <span class="font-comic text-2xl tracking-wider text-comicDark group-hover:text-white uppercase transition-colors">
+            NTR<span class="text-comicRed group-hover:text-comicYellow">.</span>DEV
+          </span>
+        </div>
+        <span class="hidden sm:inline-block bg-comicDark text-comicYellow font-comic text-xs px-2 py-0.5 rounded uppercase tracking-widest shadow-comic-sm">
+          VOL. 2025
+        </span>
+      </a>
+
+      <!-- Desktop Nav Menu inside Comic Panel Pill -->
+      <nav class="hidden md:flex items-center gap-1.5 bg-white/95 backdrop-blur comic-border px-4 py-1.5 rounded-full shadow-comic">
+        <a href="#home" class="nav-link font-comic text-lg tracking-wide px-3 py-1 rounded-full hover:bg-comicYellow hover:text-comicDark transition-colors text-comicDark">HOME</a>
+        <a href="#about" class="nav-link font-comic text-lg tracking-wide px-3 py-1 rounded-full hover:bg-comicYellow hover:text-comicDark transition-colors text-comicDark">ABOUT</a>
+        <a href="#skills" class="nav-link font-comic text-lg tracking-wide px-3 py-1 rounded-full hover:bg-comicYellow hover:text-comicDark transition-colors text-comicDark">MY SKILLS</a>
+        <a href="#experience" class="nav-link font-comic text-lg tracking-wide px-3 py-1 rounded-full hover:bg-comicYellow hover:text-comicDark transition-colors text-comicDark">EXPERIENCE</a>
+        <a href="#projects" class="nav-link font-comic text-lg tracking-wide px-3 py-1 rounded-full hover:bg-comicYellow hover:text-comicDark transition-colors text-comicDark">MY PROJECT</a>
+        <a href="#contact" class="nav-link font-comic text-lg tracking-wide px-3 py-1 rounded-full bg-comicRed text-white hover:bg-comicDark transition-colors shadow-comic-sm">CONTACT</a>
+      </nav>
+
+      <!-- Right Action Indicator (Issue No. & Status) -->
+      <div class="hidden lg:flex items-center gap-3">
+        <div class="flex items-center gap-2 bg-white comic-border px-3 py-1 rounded-lg shadow-comic-sm text-xs font-semibold">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </span>
+          <span>AVAILABLE FOR HIRE</span>
+        </div>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden bg-comicYellow comic-border p-2 rounded-lg shadow-comic focus:outline-none" aria-label="Toggle Menu">
+        <svg class="w-6 h-6 text-comicDark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden max-w-sm mx-auto mt-3 bg-white comic-border rounded-xl shadow-comic-lg p-5 flex-col gap-3">
+      <a href="#home" class="mobile-nav-link font-comic text-xl text-comicDark hover:text-comicRed py-1 border-b-2 border-dashed border-gray-200">HOME</a>
+      <a href="#about" class="mobile-nav-link font-comic text-xl text-comicDark hover:text-comicRed py-1 border-b-2 border-dashed border-gray-200">ABOUT</a>
+      <a href="#skills" class="mobile-nav-link font-comic text-xl text-comicDark hover:text-comicRed py-1 border-b-2 border-dashed border-gray-200">MY SKILLS</a>
+      <a href="#experience" class="mobile-nav-link font-comic text-xl text-comicDark hover:text-comicRed py-1 border-b-2 border-dashed border-gray-200">EXPERIENCE</a>
+      <a href="#projects" class="mobile-nav-link font-comic text-xl text-comicDark hover:text-comicRed py-1 border-b-2 border-dashed border-gray-200">MY PROJECT</a>
+      <a href="#contact" class="mobile-nav-link font-comic text-xl bg-comicRed text-white text-center py-2 rounded-lg comic-border shadow-comic-sm">CONTACT ME</a>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- 1. HOME / HERO SECTION -->
+  <!-- ======================================================== -->
+  <section id="home" class="relative min-h-screen pt-28 pb-16 px-4 sm:px-8 flex items-center justify-center overflow-hidden">
+    
+    <!-- Comic Action Elements Floating -->
+    <div class="absolute top-24 left-8 comic-badge bg-comicRed text-white px-4 py-1.5 rounded-md comic-border shadow-comic animate-wiggle z-10 hidden md:block">
+      <span class="text-2xl font-comic">POW!</span>
+    </div>
+    <div class="absolute bottom-20 right-8 comic-badge bg-comicBlue text-white px-4 py-1.5 rounded-md comic-border shadow-comic animate-floatSlow z-10 hidden md:block">
+      <span class="text-2xl font-comic">BOOM!</span>
+    </div>
+    <div class="absolute top-1/3 right-12 comic-badge bg-comicYellow text-comicDark px-4 py-1 rounded-md comic-border shadow-comic animate-floatDelayed z-10 hidden lg:block">
+      <span class="text-2xl font-comic">WOW!</span>
+    </div>
+
+    <!-- Master Comic Panel Frame for Hero -->
+    <div class="relative w-full max-w-6xl bg-white comic-border-thick rounded-2xl shadow-comic-xl p-6 sm:p-10 lg:p-14 overflow-hidden z-10">
+      
+      <!-- Panel Strip Header (Issue Tag & Barcode) -->
+      <div class="flex items-center justify-between border-b-4 border-comicDark pb-4 mb-8">
+        <div class="flex items-center gap-3">
+          <span class="bg-comicDark text-white font-comic text-lg px-3 py-0.5 tracking-wider">ISSUE #01</span>
+          <span class="font-comic text-comicRed text-base sm:text-lg tracking-wide uppercase">ORIGIN STORY &bull; CHAPTER ONE</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-comicDark/60">
+          <span class="hidden sm:inline">AUTHENTIC WEBTOON EDITION</span>
+          <span class="comic-stripes w-16 h-4 inline-block comic-border rounded-sm"></span>
+        </div>
+      </div>
+
+      <!-- Action Lightning & Radial Background Inside Panel -->
+      <div class="absolute inset-0 action-lines pointer-events-none opacity-40"></div>
+      
+      <!-- Diagonal Action Speed Lines -->
+      <svg class="absolute -top-12 -right-12 w-96 h-96 opacity-15 pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <path d="M0 0L200 200M30 0L200 170M60 0L200 140M90 0L200 110M0 30L170 200M0 60L140 200" stroke="#111111" stroke-width="4"/>
+      </svg>
+
+      <!-- Main Hero Content Grid -->
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Column: Copy & Comic Presentation (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Speech Bubble Tagline -->
+          <div class="relative inline-block bg-comicYellow comic-border px-5 py-2.5 rounded-2xl shadow-comic speech-tail-bottom mb-2">
+            <p class="font-comic text-lg sm:text-xl tracking-wide text-comicDark flex items-center gap-2">
+              <span class="text-xl">⚡</span> CREATIVE DEVELOPER ON DUTY!
+            </p>
+          </div>
+
+          <!-- Bold Hero Comic Heading -->
+          <div class="space-y-2">
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-comicDark uppercase flex items-center gap-2">
+              <span>WELCOME TO MY WORLD,</span>
+              <span class="inline-block w-8 h-1 bg-comicRed"></span>
+            </h2>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-comic text-comicDark leading-none tracking-wide">
+              HELLO, I'M <br>
+              <span class="relative inline-block text-comicRed drop-shadow-[4px_4px_0px_#111111]">
+                NAUFAL TRI
+              </span>
+              <span class="relative inline-block text-comicBlue drop-shadow-[4px_4px_0px_#111111]">
+                RAMADHANI
+              </span>
+            </h1>
+          </div>
+
+          <!-- Subheading Pill -->
+          <div class="bg-gray-100 comic-border px-4 py-3 rounded-xl shadow-comic-sm">
+            <p class="font-medium text-sm sm:text-base text-gray-800 leading-relaxed">
+              <strong class="text-comicDark">Information Systems Student</strong> &bull; 
+              <span class="text-comicBlue font-semibold">UI/UX Designer</span> &bull; 
+              <span class="text-comicRed font-semibold">Laravel & Flutter Developer</span>
+            </p>
+          </div>
+
+          <!-- Comic Speech Bubble Introduction -->
+          <div class="relative bg-white comic-border p-5 rounded-2xl shadow-comic speech-tail-left ml-3">
+            <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+              "Armed with code, clean component architecture, and graphic storytelling, I craft high-performance web and mobile applications that leap straight off the screen into real-world impact!"
+            </p>
+          </div>
+
+          <!-- Dual CTA Buttons with Comic Action Shadow -->
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#projects" class="group relative inline-flex items-center gap-3 bg-comicYellow hover:bg-comicYellow/90 text-comicDark font-comic text-2xl tracking-wider px-7 py-3 rounded-xl comic-border shadow-comic hover:shadow-comic-lg hover:-translate-y-1 transition-all active:translate-y-0 active:shadow-comic-sm">
+              <span>VIEW PROJECTS</span>
+              <span class="bg-comicDark text-white w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold group-hover:rotate-45 transition-transform">&rarr;</span>
+            </a>
+            <a href="#contact" class="relative inline-flex items-center gap-2 bg-comicRed hover:bg-comicRed/90 text-white font-comic text-2xl tracking-wider px-7 py-3 rounded-xl comic-border shadow-comic hover:shadow-comic-lg hover:-translate-y-1 transition-all active:translate-y-0 active:shadow-comic-sm">
+              <span>CONTACT ME</span>
+              <span>💬</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Visual Avatar Comic Frame (5 cols) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm">
+            
+            <!-- Comic Halftone Shadow Layer -->
+            <div class="absolute inset-0 bg-halftone-dots-red translate-x-4 translate-y-4 rounded-2xl comic-border"></div>
+            
+            <!-- Character Panel Card -->
+            <div class="relative bg-comicYellow comic-border-thick rounded-2xl p-4 shadow-comic-lg overflow-hidden">
+              
+              <!-- Yellow Action Ray Backdrop inside Card -->
+              <div class="absolute inset-0 action-lines opacity-25"></div>
+
+              <!-- Top Caption Tag -->
+              <div class="relative z-10 flex justify-between items-center bg-white comic-border px-3 py-1 rounded-lg mb-3 shadow-comic-sm">
+                <span class="font-comic text-xs uppercase tracking-wider text-comicDark">STATUS: POWER CHARGED</span>
+                <span class="text-xs font-mono font-bold text-comicRed">LVL. 99 DEV</span>
+              </div>
+
+              <!-- Avatar Illustration Graphic (SVG Comic Portrait Placeholder) -->
+              <div class="relative bg-white comic-border rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-inner overflow-hidden">
+                <div class="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
+                  
+                  <!-- Dynamic Avatar Vector Graphic -->
+                  <svg class="w-full h-full" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Sunburst -->
+                    <circle cx="120" cy="120" r="100" fill="#FFF9E6" stroke="#111111" stroke-width="4"/>
+                    <!-- Speed Accents -->
+                    <path d="M120 20L125 50M220 120L190 120M120 220L120 190M20 120L50 120" stroke="#FF4D4D" stroke-width="4" stroke-linecap="round"/>
+                    
+                    <!-- Head & Body (Stylized Comic Hero) -->
+                    <!-- Cape / Back Collar -->
+                    <path d="M55 170 C55 130, 80 120, 120 120 C160 120, 185 130, 185 170 L195 230 L45 230 Z" fill="#2563EB" stroke="#111111" stroke-width="4.5"/>
+                    <!-- Shirt / Hoodie -->
+                    <path d="M70 180 C70 145, 90 135, 120 135 C150 135, 170 145, 170 180 L180 238 L60 238 Z" fill="#FFD400" stroke="#111111" stroke-width="4"/>
+                    <path d="M120 135 L120 238" stroke="#111111" stroke-width="3"/>
+                    
+                    <!-- Neck -->
+                    <rect x="106" y="115" width="28" height="30" rx="4" fill="#FCD34D" stroke="#111111" stroke-width="4"/>
+                    
+                    <!-- Head Oval -->
+                    <ellipse cx="120" cy="95" rx="42" ry="46" fill="#FDE68A" stroke="#111111" stroke-width="4.5"/>
+                    
+                    <!-- Comic Hair (Spiky Webtoon Style) -->
+                    <path d="M75 90 C70 50, 95 40, 120 40 C145 40, 170 50, 165 90 C165 70, 150 55, 135 60 C125 50, 110 52, 100 62 C85 62, 80 75, 75 90 Z" fill="#111111"/>
+                    <path d="M72 92 L62 82 L76 78 L80 65 L95 68 L108 50 L128 58 L142 48 L150 64 L168 72 L162 88" stroke="#111111" stroke-width="4" fill="#111111"/>
+                    
+                    <!-- Comic Glasses -->
+                    <rect x="88" y="85" width="26" height="18" rx="4" fill="#FFFFFF" stroke="#111111" stroke-width="4"/>
+                    <rect x="126" y="85" width="26" height="18" rx="4" fill="#FFFFFF" stroke="#111111" stroke-width="4"/>
+                    <line x1="114" y1="94" x2="126" y2="94" stroke="#111111" stroke-width="4"/>
+                    <!-- Lens Glare -->
+                    <line x1="92" y1="99" x2="100" y2="89" stroke="#06B6D4" stroke-width="2.5"/>
+                    <line x1="130" y1="99" x2="138" y2="89" stroke="#06B6D4" stroke-width="2.5"/>
+                    
+                    <!-- Confident Smile -->
+                    <path d="M108 116 Q120 126 132 116" stroke="#111111" stroke-width="3.5" stroke-linecap="round"/>
+                    
+                    <!-- Cheerful Blush -->
+                    <ellipse cx="88" cy="112" rx="6" ry="3" fill="#FF4D4D" opacity="0.6"/>
+                    <ellipse cx="152" cy="112" rx="6" ry="3" fill="#FF4D4D" opacity="0.6"/>
+                  </svg>
+
+                  <!-- Floating Tech Mini Badges -->
+                  <div class="absolute -top-1 -right-2 bg-comicRed text-white font-comic text-xs px-2 py-0.5 rounded comic-border shadow-comic-sm rotate-6">
+                    LARAVEL
+                  </div>
+                  <div class="absolute -bottom-1 -left-2 bg-comicBlue text-white font-comic text-xs px-2 py-0.5 rounded comic-border shadow-comic-sm -rotate-6">
+                    FLUTTER
+                  </div>
+                </div>
+
+                <!-- Comic Frame Caption -->
+                <div class="mt-3 bg-comicDark text-white font-comic text-lg tracking-widest px-4 py-1 rounded w-full uppercase">
+                  NAUFAL TRI RAMADHANI
+                </div>
+              </div>
+
+              <!-- Panel Bottom Status Bar -->
+              <div class="mt-3 flex items-center justify-between text-xs font-bold text-comicDark px-1">
+                <span>HERO ID: #NTR-2025</span>
+                <span>ATTRIBUTES: FULLSTACK + UX</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 2. ABOUT SECTION (Two-Column Comic Layout) -->
+  <!-- ======================================================== -->
+  <section id="about" class="py-20 px-4 sm:px-8 max-w-6xl mx-auto relative z-10">
+    
+    <!-- Section Title in Comic Burst Style -->
+    <div class="text-center mb-14">
+      <div class="inline-block relative">
+        <div class="bg-comicRed text-white font-comic text-4xl sm:text-5xl lg:text-6xl px-8 py-3 rounded-2xl comic-border shadow-comic-lg transform -rotate-1 inline-block">
+          CHARACTER PROFILE : ABOUT ME
+        </div>
+        <span class="absolute -top-3 -right-4 bg-comicYellow text-comicDark font-comic text-sm px-2.5 py-1 rounded-md comic-border shadow-comic-sm rotate-12">
+          PAGE 02
+        </span>
+      </div>
+      <p class="text-gray-600 font-medium text-sm sm:text-base mt-4 max-w-xl mx-auto">
+        Discover the origin story, academic pathway, and design-engineering superpower behind every project.
+      </p>
+    </div>
+
+    <!-- Main Comic Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: Profile Graphic in Thick Comic Frame (5 cols) -->
+      <div class="lg:col-span-5">
+        <div class="relative bg-white comic-border-thick rounded-2xl p-6 shadow-comic-lg">
+          
+          <!-- Top Panel Header -->
+          <div class="bg-comicYellow comic-border px-3 py-1.5 rounded-lg mb-4 flex justify-between items-center shadow-comic-sm">
+            <span class="font-comic text-base tracking-wider text-comicDark">FIELD DOSSIER</span>
+            <span class="font-mono text-xs font-bold text-comicRed">CONFIDENTIAL &bull; TOP HERO</span>
+          </div>
+
+          <!-- Profile Image Comic Frame Placeholder -->
+          <div class="relative aspect-[4/5] bg-comicPaper rounded-xl comic-border overflow-hidden flex flex-col items-center justify-center p-6 text-center group">
+            
+            <!-- Diagonal stripes background inside photo box -->
+            <div class="absolute inset-0 comic-stripes-subtle"></div>
+            <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-halftone-dots-yellow opacity-40 rounded-full"></div>
+
+            <!-- Stylized Illustrated Card Placeholder -->
+            <div class="relative z-10 flex flex-col items-center">
+              <div class="w-36 h-36 rounded-full bg-white comic-border-thick shadow-comic flex items-center justify-center mb-4 group-hover:scale-105 transition-transform overflow-hidden">
+                <svg class="w-24 h-24 text-comicDark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <h3 class="font-comic text-2xl text-comicDark tracking-wide">NAUFAL TRI R.</h3>
+              <p class="text-xs font-bold text-comicBlue uppercase tracking-wider mt-1">Information Systems Innovator</p>
+              
+              <div class="mt-4 flex gap-2">
+                <span class="bg-comicDark text-comicYellow text-[11px] font-comic px-2.5 py-1 rounded">UI/UX</span>
+                <span class="bg-comicRed text-white text-[11px] font-comic px-2.5 py-1 rounded">LARAVEL</span>
+                <span class="bg-comicBlue text-white text-[11px] font-comic px-2.5 py-1 rounded">FLUTTER</span>
+              </div>
+            </div>
+
+            <!-- Corner Comic Screentone Ribbon -->
+            <div class="absolute top-3 right-3 bg-comicRed text-white font-comic text-xs px-2.5 py-1 rounded comic-border rotate-12 shadow-comic-sm">
+              READY!
+            </div>
+          </div>
+
+          <!-- Bottom Quote in Small Panel -->
+          <div class="mt-4 bg-gray-50 comic-border p-3.5 rounded-xl text-center text-xs font-semibold text-gray-700">
+            "Design without clean code is just a drawing. Code without intuitive design is a machine with no manual."
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Speech Bubbles & Info Cards (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Speech Bubble 1: Main Biography Narrative -->
+        <div class="relative bg-white comic-border-thick p-6 sm:p-7 rounded-2xl shadow-comic speech-tail-left">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-comicYellow text-comicDark font-comic text-sm px-2.5 py-0.5 rounded comic-border shadow-comic-sm">CHAPTER INTRO</span>
+            <h4 class="font-comic text-xl text-comicDark tracking-wide">THE ORIGIN & PASSION</h4>
+          </div>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            I am an undergraduate student majoring in <strong>Information Systems</strong> with a relentless fascination for human-computer interaction and full-stack software development. 
+            Blending high-octane visual storytelling with robust engineering, I specialize in architecting accessible user interfaces and scalable web services using <strong>Laravel</strong>, <strong>Flutter</strong>, and <strong>Tailwind CSS</strong>.
+          </p>
+        </div>
+
+        <!-- Speech Bubble 2: Engineering Philosophy -->
+        <div class="relative bg-comicYellow/25 comic-border p-5 rounded-2xl shadow-comic">
+          <p class="text-gray-800 text-sm sm:text-base leading-relaxed">
+            <strong class="font-comic text-lg tracking-wide text-comicDark block mb-1">🎯 MISSION STATEMENT</strong>
+            Whether it's drafting Figma wireframes, crafting cross-platform mobile experiences with Flutter, or engineering database schemas in MySQL, my core drive is solving messy problems with crisp, delightful, and user-centric solutions.
+          </p>
+        </div>
+
+        <!-- 4 Comic Info Cards Grid (Name, University, Major, Location) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          
+          <!-- Card 1: Name -->
+          <div class="bg-white comic-border rounded-xl p-4 shadow-comic hover:-translate-y-1 hover:shadow-comic-lg transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-comicYellow comic-border flex items-center justify-center font-comic text-xl shadow-comic-sm">
+                👤
+              </div>
+              <div>
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block">FULL NAME</span>
+                <span class="font-bold text-comicDark text-sm sm:text-base">Naufal Tri Ramadhani</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: University -->
+          <div class="bg-white comic-border rounded-xl p-4 shadow-comic hover:-translate-y-1 hover:shadow-comic-lg transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-comicRed text-white comic-border flex items-center justify-center font-comic text-xl shadow-comic-sm">
+                🎓
+              </div>
+              <div>
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block">ACADEMIC HOME</span>
+                <span class="font-bold text-comicDark text-sm sm:text-base">Universitas Dinamika</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Major -->
+          <div class="bg-white comic-border rounded-xl p-4 shadow-comic hover:-translate-y-1 hover:shadow-comic-lg transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-comicBlue text-white comic-border flex items-center justify-center font-comic text-xl shadow-comic-sm">
+                💻
+              </div>
+              <div>
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block">STUDY PROGRAM</span>
+                <span class="font-bold text-comicDark text-sm sm:text-base">S1 Information Systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Location -->
+          <div class="bg-white comic-border rounded-xl p-4 shadow-comic hover:-translate-y-1 hover:shadow-comic-lg transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-emerald-400 comic-border flex items-center justify-center font-comic text-xl shadow-comic-sm">
+                📍
+              </div>
+              <div>
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block">CURRENT BASE</span>
+                <span class="font-bold text-comicDark text-sm sm:text-base">Surabaya, Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 3. MY SKILLS SECTION (Comic Trading Cards) -->
+  <!-- ======================================================== -->
+  <section id="skills" class="py-20 px-4 sm:px-8 max-w-6xl mx-auto relative z-10">
+    
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <div class="inline-block relative">
+        <div class="bg-comicYellow text-comicDark font-comic text-4xl sm:text-5xl lg:text-6xl px-8 py-3 rounded-2xl comic-border shadow-comic-lg transform rotate-1 inline-block">
+          SUPERPOWER DECK : MY SKILLS
+        </div>
+        <span class="absolute -bottom-3 -right-4 bg-comicRed text-white font-comic text-sm px-2.5 py-1 rounded-md comic-border shadow-comic-sm -rotate-6">
+          8 TRADING CARDS
+        </span>
+      </div>
+      <p class="text-gray-600 font-medium text-sm sm:text-base mt-4 max-w-xl mx-auto">
+        Inspect my combat abilities, proficiency power meters, and technical battle loadout.
+      </p>
+    </div>
+
+    <!-- 8 Skills Comic Trading Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- CARD 1: HTML5 -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:rotate-1 transition-all duration-300">
+        <!-- Power Type Badge -->
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded uppercase">MARKUP</span>
+          <span class="font-comic text-sm text-comicRed">HP: 95/100</span>
+        </div>
+        <!-- Card Icon Art Frame -->
+        <div class="bg-orange-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-orange-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-orange-500 comic-border flex items-center justify-center text-white font-black text-2xl shadow-comic-sm">
+            &lt;/&gt;
+          </div>
+        </div>
+        <!-- Skill Title & Description -->
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1">HTML5</h3>
+        <p class="text-xs text-gray-600 mb-4">Semantic architecture, SEO standards, & accessible web structures.</p>
+        <!-- Power Energy Bar -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-orange-600">95%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full" style="width: 95%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: CSS3 / Tailwind -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:-rotate-1 transition-all duration-300">
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded uppercase">STYLING</span>
+          <span class="font-comic text-sm text-comicBlue">HP: 92/100</span>
+        </div>
+        <div class="bg-blue-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-comicBlue comic-border flex items-center justify-center text-white font-black text-2xl shadow-comic-sm">
+            #
+          </div>
+        </div>
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1">CSS / TAILWIND</h3>
+        <p class="text-xs text-gray-600 mb-4">Modern responsive systems, keyframe animations, & comic styling.</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-comicBlue">92%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-blue-400 to-comicBlue rounded-full" style="width: 92%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: JavaScript -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:rotate-1 transition-all duration-300">
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded uppercase">LOGIC</span>
+          <span class="font-comic text-sm text-yellow-600">HP: 88/100</span>
+        </div>
+        <div class="bg-yellow-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-yellow-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-comicYellow comic-border flex items-center justify-center text-comicDark font-black text-2xl shadow-comic-sm">
+            JS
+          </div>
+        </div>
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1">JAVASCRIPT</h3>
+        <p class="text-xs text-gray-600 mb-4">ES6+ syntax, asynchronous fetching, DOM operations, & interactivity.</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-yellow-700">88%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-yellow-300 to-comicYellow rounded-full" style="width: 88%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: PHP -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:-rotate-1 transition-all duration-300">
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded uppercase">BACKEND</span>
+          <span class="font-comic text-sm text-indigo-600">HP: 85/100</span>
+        </div>
+        <div class="bg-indigo-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-indigo-600 comic-border flex items-center justify-center text-white font-black text-xl shadow-comic-sm">
+            PHP
+          </div>
+        </div>
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1">PHP</h3>
+        <p class="text-xs text-gray-600 mb-4">Object-oriented programming, session handling, & server APIs.</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-indigo-600">85%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-indigo-400 to-indigo-600 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5: Laravel (Special Superpower) -->
+      <div class="group relative bg-gradient-to-b from-white to-red-50/40 comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:rotate-1 transition-all duration-300 border-comicRed">
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicRed text-white font-comic text-xs px-2 py-0.5 rounded uppercase">PRIMARY SPELL</span>
+          <span class="font-comic text-sm text-comicRed">HP: 90/100</span>
+        </div>
+        <div class="bg-red-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-red-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-comicRed comic-border flex items-center justify-center text-white font-black text-xl shadow-comic-sm">
+            LV
+          </div>
+        </div>
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1 flex items-center gap-1.5">
+          <span>LARAVEL</span>
+          <span class="text-xs bg-comicYellow px-1.5 rounded comic-border text-comicDark">CORE</span>
+        </h3>
+        <p class="text-xs text-gray-600 mb-4">Eloquent ORM, Blade templating, RESTful routing, & authentication.</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-comicRed">90%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-red-400 to-comicRed rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6: Flutter (Special Superpower) -->
+      <div class="group relative bg-gradient-to-b from-white to-blue-50/40 comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 border-comicBlue">
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicBlue text-white font-comic text-xs px-2 py-0.5 rounded uppercase">CROSS-PLATFORM</span>
+          <span class="font-comic text-sm text-comicBlue">HP: 86/100</span>
+        </div>
+        <div class="bg-sky-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-sky-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-cyan-600 comic-border flex items-center justify-center text-white font-black text-xl shadow-comic-sm">
+            FL
+          </div>
+        </div>
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1 flex items-center gap-1.5">
+          <span>FLUTTER</span>
+          <span class="text-xs bg-comicYellow px-1.5 rounded comic-border text-comicDark">MOBILE</span>
+        </h3>
+        <p class="text-xs text-gray-600 mb-4">Dart programming, state management (Bloc/Provider), & mobile UI.</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-cyan-700">86%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full" style="width: 86%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7: MySQL -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:rotate-1 transition-all duration-300">
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded uppercase">DATABASE</span>
+          <span class="font-comic text-sm text-teal-700">HP: 87/100</span>
+        </div>
+        <div class="bg-teal-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-teal-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-teal-600 comic-border flex items-center justify-center text-white font-black text-xl shadow-comic-sm">
+            SQL
+          </div>
+        </div>
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1">MYSQL</h3>
+        <p class="text-xs text-gray-600 mb-4">Relational modeling, indexing, foreign keys, & query performance.</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-teal-700">87%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-teal-400 to-teal-600 rounded-full" style="width: 87%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8: Figma -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 hover:-rotate-1 transition-all duration-300">
+        <div class="flex justify-between items-center mb-3">
+          <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded uppercase">PRODUCT DESIGN</span>
+          <span class="font-comic text-sm text-purple-700">HP: 94/100</span>
+        </div>
+        <div class="bg-purple-50 comic-border rounded-xl p-4 flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-colors">
+          <div class="w-14 h-14 rounded-lg bg-purple-600 comic-border flex items-center justify-center text-white font-black text-xl shadow-comic-sm">
+            FG
+          </div>
+        </div>
+        <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-1">FIGMA</h3>
+        <p class="text-xs text-gray-600 mb-4">Design systems, auto-layout, interactive prototypes, & UX research.</p>
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-bold">
+            <span class="font-comic text-comicDark tracking-wide">POWER METER</span>
+            <span class="text-purple-700">94%</span>
+          </div>
+          <div class="h-3.5 bg-gray-200 comic-border rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-gradient-to-r from-purple-400 to-purple-600 rounded-full" style="width: 94%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 4. EXPERIENCE SECTION (Vertical Comic Story Timeline) -->
+  <!-- ======================================================== -->
+  <section id="experience" class="py-20 px-4 sm:px-8 max-w-5xl mx-auto relative z-10">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-block relative">
+        <div class="bg-comicBlue text-white font-comic text-4xl sm:text-5xl lg:text-6xl px-8 py-3 rounded-2xl comic-border shadow-comic-lg transform -rotate-1 inline-block">
+          CHRONICLES OF EXPERIENCE
+        </div>
+        <span class="absolute -top-3 -left-4 bg-comicYellow text-comicDark font-comic text-sm px-2.5 py-1 rounded-md comic-border shadow-comic-sm rotate-6">
+          CAREER ARC
+        </span>
+      </div>
+      <p class="text-gray-600 font-medium text-sm sm:text-base mt-4 max-w-xl mx-auto">
+        Key chapters, developer milestones, and project leadership along the timeline.
+      </p>
+    </div>
+
+    <!-- Timeline Container with Illustrated Action Center-Line -->
+    <div class="relative">
+      
+      <!-- Central Illustrated Comic Line -->
+      <div class="absolute left-6 md:left-1/2 top-4 bottom-4 w-1.5 -translate-x-1/2 bg-comicDark border-r-2 border-dashed border-comicYellow z-0"></div>
+
+      <div class="space-y-12">
+        
+        <!-- TIMELINE PANEL 1 -->
+        <div class="relative flex flex-col md:flex-row items-start md:items-center">
+          <!-- Marker on Action Line -->
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-comicYellow comic-border-thick rounded-full flex items-center justify-center font-comic text-lg text-comicDark shadow-comic z-10">
+            01
+          </div>
+          <!-- Content Box (Left Side on Desktop) -->
+          <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12 w-full">
+            <div class="bg-white comic-border-thick rounded-2xl p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-1 transition-all">
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-comicRed text-white font-comic text-xs px-2.5 py-0.5 rounded comic-border">2024 - PRESENT</span>
+                <span class="font-mono text-xs font-bold text-gray-500">LEAD CHAPTER</span>
+              </div>
+              <h3 class="font-comic text-2xl text-comicDark tracking-wide">FULLSTACK WEB DEVELOPER</h3>
+              <h4 class="text-sm font-bold text-comicBlue mb-3">Campus Lab / Software Studio Project</h4>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                Spearheaded the development of internal university portals utilizing <strong>Laravel 11</strong> and MySQL. Engineered authentication guard systems, dynamic report generation, and responsive student record management modules.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">Laravel</span>
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">MySQL</span>
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">Tailwind CSS</span>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block md:w-1/2"></div>
+        </div>
+
+        <!-- TIMELINE PANEL 2 -->
+        <div class="relative flex flex-col md:flex-row items-start md:items-center">
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-comicRed comic-border-thick rounded-full flex items-center justify-center font-comic text-lg text-white shadow-comic z-10">
+            02
+          </div>
+          <div class="hidden md:block md:w-1/2"></div>
+          <!-- Content Box (Right Side on Desktop) -->
+          <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12 w-full">
+            <div class="bg-white comic-border-thick rounded-2xl p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-1 transition-all">
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-comicBlue text-white font-comic text-xs px-2.5 py-0.5 rounded comic-border">2023 - 2024</span>
+                <span class="font-mono text-xs font-bold text-gray-500">MOBILE SAGA</span>
+              </div>
+              <h3 class="font-comic text-2xl text-comicDark tracking-wide">FLUTTER MOBILE DEVELOPER</h3>
+              <h4 class="text-sm font-bold text-comicRed mb-3">Independent Freelance & Academic Showcase</h4>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                Designed and built cross-platform mobile apps for local retail and logistics. Integrated REST APIs, offline SQLite caching, and fluid state management with Provider pattern.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">Flutter</span>
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">Dart</span>
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">REST APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIMELINE PANEL 3 -->
+        <div class="relative flex flex-col md:flex-row items-start md:items-center">
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-comicBlue comic-border-thick rounded-full flex items-center justify-center font-comic text-lg text-white shadow-comic z-10">
+            03
+          </div>
+          <!-- Content Box (Left Side on Desktop) -->
+          <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12 w-full">
+            <div class="bg-white comic-border-thick rounded-2xl p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-1 transition-all">
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-comicYellow text-comicDark font-comic text-xs px-2.5 py-0.5 rounded comic-border">2022 - 2023</span>
+                <span class="font-mono text-xs font-bold text-gray-500">DESIGN ROOTS</span>
+              </div>
+              <h3 class="font-comic text-2xl text-comicDark tracking-wide">UI/UX DESIGN INTERN</h3>
+              <h4 class="text-sm font-bold text-comicBlue mb-3">Student Creative Guild</h4>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                Executed user personas, wireframing, high-fidelity mockups, and usability tests for 10+ student startup concepts. Created cohesive brand guidelines and tokenized Figma components.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">Figma</span>
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">Design Systems</span>
+                <span class="text-[11px] font-semibold bg-gray-100 comic-border px-2 py-0.5 rounded">Prototyping</span>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block md:w-1/2"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 5. MY PROJECT SECTION (6 Comic Project Cards) -->
+  <!-- ======================================================== -->
+  <section id="projects" class="py-20 px-4 sm:px-8 max-w-6xl mx-auto relative z-10">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-block relative">
+        <div class="bg-comicDark text-comicYellow font-comic text-4xl sm:text-5xl lg:text-6xl px-8 py-3 rounded-2xl comic-border-thick shadow-comic-xl transform rotate-1 inline-block">
+          GALLERY OF MISSIONS : MY PROJECTS
+        </div>
+        <span class="absolute -top-3 -right-3 bg-comicRed text-white font-comic text-sm px-2.5 py-1 rounded-md comic-border shadow-comic-sm rotate-12">
+          TOP 6 ARCHIVES
+        </span>
+      </div>
+      <p class="text-gray-600 font-medium text-sm sm:text-base mt-4 max-w-xl mx-auto">
+        Dive into my production-grade web systems, mobile applications, and graphic novel UI experiments.
+      </p>
+    </div>
+
+    <!-- 6 Projects Grid with Comic Lift & Burst Effects -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- PROJECT CARD 1 -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+        <!-- Comic Burst Background on Hover -->
+        <div class="absolute -inset-2 bg-comicYellow/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-sm pointer-events-none"></div>
+
+        <div>
+          <!-- Large Image Placeholder with Comic Frame -->
+          <div class="relative w-full aspect-video bg-gradient-to-br from-yellow-100 to-amber-200 comic-border rounded-xl overflow-hidden mb-4 p-4 flex flex-col justify-between">
+            <div class="flex justify-between items-center">
+              <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded">MISSION #01</span>
+              <span class="bg-comicRed text-white font-comic text-xs px-2 py-0.5 rounded">LARAVEL</span>
+            </div>
+            <!-- Center Graphic Placeholder -->
+            <div class="flex flex-col items-center justify-center">
+              <div class="w-12 h-12 rounded-xl bg-white comic-border flex items-center justify-center font-comic text-2xl shadow-comic-sm">
+                📊
+              </div>
+              <span class="font-comic text-sm text-comicDark mt-2 tracking-wider">ACADEMIC ERP PORTAL</span>
+            </div>
+            <!-- Bottom Tech bar -->
+            <div class="text-[10px] font-mono font-bold text-comicDark/60">STATUS: DEPLOYED</div>
+          </div>
+
+          <!-- Project Title -->
+          <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-2 group-hover:text-comicRed transition-colors">
+            CAMPUS ACADEMIC SUITE
+          </h3>
+
+          <!-- Technology Badges -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="bg-yellow-100 text-comicDark font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Laravel 11</span>
+            <span class="bg-blue-100 text-comicBlue font-semibold text-xs px-2.5 py-0.5 rounded comic-border">MySQL</span>
+            <span class="bg-red-100 text-comicRed font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Tailwind</span>
+          </div>
+
+          <!-- Short Description -->
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            An all-in-one university management system handling student course registration, lecturer grade submissions, and automated syllabus verification.
+          </p>
+        </div>
+
+        <!-- View Detail Button -->
+        <button onclick="openProjectModal('CAMPUS ACADEMIC SUITE', 'Full-stack enterprise application built with Laravel 11. Features multi-role role-based access control (RBAC), automated transcript generation with PDF export, and a clean responsive administration console.', ['Laravel 11', 'MySQL', 'Tailwind CSS', 'Alpine.js', 'ChartJS'], 'https://github.com/')" class="w-full bg-comicYellow hover:bg-comicDark hover:text-comicYellow text-comicDark font-comic text-lg tracking-wider py-2.5 px-4 rounded-xl comic-border shadow-comic hover:shadow-comic-sm transition-all text-center">
+          VIEW DETAIL &rarr;
+        </button>
+      </div>
+
+      <!-- PROJECT CARD 2 -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+        <div class="absolute -inset-2 bg-comicBlue/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-sm pointer-events-none"></div>
+
+        <div>
+          <!-- Large Image Placeholder -->
+          <div class="relative w-full aspect-video bg-gradient-to-br from-blue-100 to-cyan-200 comic-border rounded-xl overflow-hidden mb-4 p-4 flex flex-col justify-between">
+            <div class="flex justify-between items-center">
+              <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded">MISSION #02</span>
+              <span class="bg-comicBlue text-white font-comic text-xs px-2 py-0.5 rounded">FLUTTER</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="w-12 h-12 rounded-xl bg-white comic-border flex items-center justify-center font-comic text-2xl shadow-comic-sm">
+                📱
+              </div>
+              <span class="font-comic text-sm text-comicDark mt-2 tracking-wider">SMART LOGISTICS APP</span>
+            </div>
+            <div class="text-[10px] font-mono font-bold text-comicDark/60">STATUS: CROSS-PLATFORM</div>
+          </div>
+
+          <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-2 group-hover:text-comicBlue transition-colors">
+            TRACKFLOW COURIER
+          </h3>
+
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="bg-cyan-100 text-comicBlue font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Flutter</span>
+            <span class="bg-indigo-100 text-indigo-700 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Dart</span>
+            <span class="bg-emerald-100 text-emerald-800 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Google Maps API</span>
+          </div>
+
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Cross-platform courier companion app featuring real-time GPS tracking, signature pad capture, barcode camera scanning, and offline delivery sync.
+          </p>
+        </div>
+
+        <button onclick="openProjectModal('TRACKFLOW COURIER', 'Built using Flutter and Dart. Designed for rapid last-mile delivery drivers with live waypoint optimization, real-time push alerts via Firebase, and local SQLite data caching for zero-reception areas.', ['Flutter', 'Dart', 'Firebase Cloud Messaging', 'OpenStreetMap', 'SQLite'], 'https://github.com/')" class="w-full bg-comicBlue hover:bg-comicDark text-white hover:text-comicYellow font-comic text-lg tracking-wider py-2.5 px-4 rounded-xl comic-border shadow-comic hover:shadow-comic-sm transition-all text-center">
+          VIEW DETAIL &rarr;
+        </button>
+      </div>
+
+      <!-- PROJECT CARD 3 -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+        <div class="absolute -inset-2 bg-comicRed/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-sm pointer-events-none"></div>
+
+        <div>
+          <!-- Large Image Placeholder -->
+          <div class="relative w-full aspect-video bg-gradient-to-br from-red-100 to-rose-200 comic-border rounded-xl overflow-hidden mb-4 p-4 flex flex-col justify-between">
+            <div class="flex justify-between items-center">
+              <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded">MISSION #03</span>
+              <span class="bg-comicRed text-white font-comic text-xs px-2 py-0.5 rounded">FULLSTACK</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="w-12 h-12 rounded-xl bg-white comic-border flex items-center justify-center font-comic text-2xl shadow-comic-sm">
+                ☕
+              </div>
+              <span class="font-comic text-sm text-comicDark mt-2 tracking-wider">COFFEE SHOP POS & ORDER</span>
+            </div>
+            <div class="text-[10px] font-mono font-bold text-comicDark/60">STATUS: PRODUCTION</div>
+          </div>
+
+          <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-2 group-hover:text-comicRed transition-colors">
+            KOPISINI POS ECOSYSTEM
+          </h3>
+
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="bg-rose-100 text-comicRed font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Laravel</span>
+            <span class="bg-yellow-100 text-yellow-800 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Midtrans Pay</span>
+            <span class="bg-gray-100 text-gray-800 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">MySQL</span>
+          </div>
+
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Point of sales system designed for specialty coffee shops. Supports dynamic QR table ordering, kitchen ticket printing, and financial cash reports.
+          </p>
+        </div>
+
+        <button onclick="openProjectModal('KOPISINI POS ECOSYSTEM', 'A full-cycle hospitality tech platform. Integrates seamless online payments with Midtrans payment gateway, automated thermal receipt printing, and end-of-day revenue reconcilement.', ['Laravel', 'Midtrans Gateway', 'MySQL', 'Tailwind', 'Pusher Channels'], 'https://github.com/')" class="w-full bg-comicRed hover:bg-comicDark text-white hover:text-comicYellow font-comic text-lg tracking-wider py-2.5 px-4 rounded-xl comic-border shadow-comic hover:shadow-comic-sm transition-all text-center">
+          VIEW DETAIL &rarr;
+        </button>
+      </div>
+
+      <!-- PROJECT CARD 4 -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+        <div class="absolute -inset-2 bg-purple-300/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-sm pointer-events-none"></div>
+
+        <div>
+          <!-- Large Image Placeholder -->
+          <div class="relative w-full aspect-video bg-gradient-to-br from-purple-100 to-fuchsia-200 comic-border rounded-xl overflow-hidden mb-4 p-4 flex flex-col justify-between">
+            <div class="flex justify-between items-center">
+              <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded">MISSION #04</span>
+              <span class="bg-purple-600 text-white font-comic text-xs px-2 py-0.5 rounded">UI/UX CASE</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="w-12 h-12 rounded-xl bg-white comic-border flex items-center justify-center font-comic text-2xl shadow-comic-sm">
+                🎨
+              </div>
+              <span class="font-comic text-sm text-comicDark mt-2 tracking-wider">NEO-BANKING MOBILE UI</span>
+            </div>
+            <div class="text-[10px] font-mono font-bold text-comicDark/60">STATUS: PROTOTYPE</div>
+          </div>
+
+          <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-2 group-hover:text-purple-600 transition-colors">
+            ZENITH WEALTH APP DESIGN
+          </h3>
+
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="bg-purple-100 text-purple-700 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Figma</span>
+            <span class="bg-gray-100 text-gray-800 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Design System</span>
+            <span class="bg-yellow-100 text-yellow-800 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">User Testing</span>
+          </div>
+
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            A comprehensive fintech UX case study designed to simplify Gen-Z micro-investing, automated crypto-baskets, and recurring pocket savings.
+          </p>
+        </div>
+
+        <button onclick="openProjectModal('ZENITH WEALTH APP DESIGN', 'Comprehensive design sprint product containing 45+ component states, dark and light theme tokens, interactive smart animations in Figma, and a 94% SUS usability score from 20 user trials.', ['Figma', 'Auto-Layout 5', 'Prototyping', 'Design Tokens'], 'https://figma.com/')" class="w-full bg-purple-600 hover:bg-comicDark text-white hover:text-comicYellow font-comic text-lg tracking-wider py-2.5 px-4 rounded-xl comic-border shadow-comic hover:shadow-comic-sm transition-all text-center">
+          VIEW DETAIL &rarr;
+        </button>
+      </div>
+
+      <!-- PROJECT CARD 5 -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+        <div class="absolute -inset-2 bg-emerald-300/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-sm pointer-events-none"></div>
+
+        <div>
+          <!-- Large Image Placeholder -->
+          <div class="relative w-full aspect-video bg-gradient-to-br from-emerald-100 to-green-200 comic-border rounded-xl overflow-hidden mb-4 p-4 flex flex-col justify-between">
+            <div class="flex justify-between items-center">
+              <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded">MISSION #05</span>
+              <span class="bg-emerald-600 text-white font-comic text-xs px-2 py-0.5 rounded">HEALTH-TECH</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="w-12 h-12 rounded-xl bg-white comic-border flex items-center justify-center font-comic text-2xl shadow-comic-sm">
+                🩺
+              </div>
+              <span class="font-comic text-sm text-comicDark mt-2 tracking-wider">MEDICARE QUEUE APP</span>
+            </div>
+            <div class="text-[10px] font-mono font-bold text-comicDark/60">STATUS: MVP COMPLETED</div>
+          </div>
+
+          <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-2 group-hover:text-emerald-600 transition-colors">
+            KLINIKU VIRTUAL QUEUE
+          </h3>
+
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="bg-emerald-100 text-emerald-800 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Flutter</span>
+            <span class="bg-blue-100 text-comicBlue font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Laravel API</span>
+            <span class="bg-gray-100 text-gray-800 font-semibold text-xs px-2.5 py-0.5 rounded comic-border">WebSockets</span>
+          </div>
+
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Patient outpatient appointment booking platform with live estimated waiting countdowns, push alerts, and digital clinic doctor schedules.
+          </p>
+        </div>
+
+        <button onclick="openProjectModal('KLINIKU VIRTUAL QUEUE', 'Developed for regional community health centers. Solved waiting room overcrowding with algorithmic queue slot reservation and instant WhatsApp reminder notifications.', ['Flutter', 'Laravel REST API', 'MySQL', 'Twilio API'], 'https://github.com/')" class="w-full bg-emerald-600 hover:bg-comicDark text-white hover:text-comicYellow font-comic text-lg tracking-wider py-2.5 px-4 rounded-xl comic-border shadow-comic hover:shadow-comic-sm transition-all text-center">
+          VIEW DETAIL &rarr;
+        </button>
+      </div>
+
+      <!-- PROJECT CARD 6 -->
+      <div class="group relative bg-white comic-border-thick rounded-2xl p-5 shadow-comic hover:shadow-comic-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+        <div class="absolute -inset-2 bg-comicYellow/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-sm pointer-events-none"></div>
+
+        <div>
+          <!-- Large Image Placeholder -->
+          <div class="relative w-full aspect-video bg-gradient-to-br from-amber-100 to-orange-200 comic-border rounded-xl overflow-hidden mb-4 p-4 flex flex-col justify-between">
+            <div class="flex justify-between items-center">
+              <span class="bg-comicDark text-white font-comic text-xs px-2 py-0.5 rounded">MISSION #06</span>
+              <span class="bg-comicDark text-comicYellow font-comic text-xs px-2 py-0.5 rounded">WEBTOON UI</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <div class="w-12 h-12 rounded-xl bg-white comic-border flex items-center justify-center font-comic text-2xl shadow-comic-sm">
+                💥
+              </div>
+              <span class="font-comic text-sm text-comicDark mt-2 tracking-wider">COMIC COMPONENT SYSTEM</span>
+            </div>
+            <div class="text-[10px] font-mono font-bold text-comicDark/60">STATUS: OPEN SOURCE</div>
+          </div>
+
+          <h3 class="font-comic text-2xl text-comicDark tracking-wide mb-2 group-hover:text-comicRed transition-colors">
+            ACTIONUI TAILWIND PACK
+          </h3>
+
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="bg-yellow-100 text-comicDark font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Tailwind CSS</span>
+            <span class="bg-red-100 text-comicRed font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Halftone SVGs</span>
+            <span class="bg-blue-100 text-comicBlue font-semibold text-xs px-2.5 py-0.5 rounded comic-border">Micro-Interactions</span>
+          </div>
+
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            A playful open-source UI component library featuring graphic novel speech bubbles, action badges, halftone textures, and neo-brutalist layouts.
+          </p>
+        </div>
+
+        <button onclick="openProjectModal('ACTIONUI TAILWIND PACK', 'A lightweight CSS & SVG preset library allowing developers to build playful manga/comic themed web applications without heavy runtime dependencies. Over 40 customizable components included.', ['Tailwind CSS', 'SVG Gradients', 'JavaScript', 'CSS Keyframes'], 'https://github.com/')" class="w-full bg-comicYellow hover:bg-comicDark hover:text-comicYellow text-comicDark font-comic text-lg tracking-wider py-2.5 px-4 rounded-xl comic-border shadow-comic hover:shadow-comic-sm transition-all text-center">
+          VIEW DETAIL &rarr;
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 6. CONTACT SECTION (Fun Comic Ending Section) -->
+  <!-- ======================================================== -->
+  <section id="contact" class="py-20 px-4 sm:px-8 max-w-5xl mx-auto relative z-10">
+    
+    <!-- Big Ending Speech Bubble Banner -->
+    <div class="relative bg-white comic-border-thick rounded-3xl p-8 sm:p-12 shadow-comic-xl overflow-hidden">
+      
+      <!-- Action Halftone & Rays Background -->
+      <div class="absolute inset-0 bg-halftone-dots-yellow opacity-35 pointer-events-none"></div>
+
+      <!-- Top Comic Strip Header -->
+      <div class="relative z-10 flex justify-between items-center border-b-4 border-comicDark pb-4 mb-8">
+        <div class="flex items-center gap-2">
+          <span class="bg-comicRed text-white font-comic text-sm px-3 py-1 rounded">FINAL CLIMAX</span>
+          <span class="font-comic text-comicDark text-lg tracking-wider">COLLABORATION PORTAL</span>
+        </div>
+        <span class="font-mono text-xs font-bold text-gray-500 hidden sm:inline">END OF ISSUE #01</span>
+      </div>
+
+      <!-- Heading inside Comic Speech Bubble -->
+      <div class="relative z-10 text-center mb-10">
+        <div class="relative inline-block bg-comicYellow comic-border px-8 py-4 rounded-3xl shadow-comic speech-tail-bottom">
+          <h2 class="font-comic text-3xl sm:text-5xl lg:text-6xl text-comicDark tracking-wide">
+            LET'S WORK TOGETHER! ⚡
+          </h2>
+        </div>
+        <p class="text-gray-700 font-medium text-sm sm:text-base mt-6 max-w-lg mx-auto">
+          Have an exciting web application, Flutter mobile idea, or UI/UX redesign? Send a message and let's craft something heroic!
+        </p>
+      </div>
+
+      <!-- Contact Layout (Form + Badges) -->
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Comic Contact Form (7 cols) -->
+        <div class="lg:col-span-7 bg-comicPaper comic-border rounded-2xl p-6 sm:p-8 shadow-comic">
+          <form id="comic-contact-form" onsubmit="event.preventDefault(); submitForm();" class="space-y-4">
+            
+            <!-- Name Input -->
+            <div>
+              <label for="name" class="block font-comic text-lg text-comicDark tracking-wide mb-1">
+                YOUR NAME / ALIAS <span class="text-comicRed">*</span>
+              </label>
+              <input type="text" id="name" required placeholder="e.g. Tony Stark" class="w-full bg-white comic-border rounded-xl px-4 py-3 text-comicDark font-medium text-sm focus:outline-none focus:ring-4 focus:ring-comicYellow shadow-comic-sm">
+            </div>
+
+            <!-- Email Input -->
+            <div>
+              <label for="email" class="block font-comic text-lg text-comicDark tracking-wide mb-1">
+                TRANSMISSION EMAIL <span class="text-comicRed">*</span>
+              </label>
+              <input type="email" id="email" required placeholder="e.g. tony@starkindustries.com" class="w-full bg-white comic-border rounded-xl px-4 py-3 text-comicDark font-medium text-sm focus:outline-none focus:ring-4 focus:ring-comicYellow shadow-comic-sm">
+            </div>
+
+            <!-- Message Input -->
+            <div>
+              <label for="message" class="block font-comic text-lg text-comicDark tracking-wide mb-1">
+                MISSION BRIEF / MESSAGE <span class="text-comicRed">*</span>
+              </label>
+              <textarea id="message" rows="4" required placeholder="Describe your project, timeline, or greetings..." class="w-full bg-white comic-border rounded-xl px-4 py-3 text-comicDark font-medium text-sm focus:outline-none focus:ring-4 focus:ring-comicYellow shadow-comic-sm resize-none"></textarea>
+            </div>
+
+            <!-- Submit Button with Comic Style -->
+            <button type="submit" id="send-btn" class="w-full bg-comicRed hover:bg-comicDark text-white hover:text-comicYellow font-comic text-2xl tracking-wider py-3.5 px-6 rounded-xl comic-border shadow-comic hover:shadow-comic-lg hover:-translate-y-1 transition-all active:translate-y-0 active:shadow-comic-sm flex items-center justify-center gap-2">
+              <span>SEND TRANSMISSION!</span>
+              <span class="text-xl">🚀</span>
+            </button>
+          </form>
+
+          <!-- Form Feedback Toast Container -->
+          <div id="form-toast" class="hidden mt-4 p-4 bg-emerald-100 comic-border rounded-xl text-center text-emerald-900 font-bold text-sm shadow-comic">
+            🎉 MISSION SENT! Thank you, Naufal will reply to your transmission promptly.
+          </div>
+        </div>
+
+        <!-- Social Icons & Badges (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Direct Quick Contact Panel -->
+          <div class="bg-white comic-border rounded-2xl p-6 shadow-comic space-y-4">
+            <h3 class="font-comic text-2xl text-comicDark tracking-wide flex items-center gap-2">
+              <span>DIRECT CHANNELS</span>
+              <span class="text-sm bg-comicYellow px-2 py-0.5 rounded comic-border text-comicDark">FAST</span>
+            </h3>
+
+            <div class="space-y-3">
+              <a href="mailto:naufal@example.com" class="flex items-center gap-3 p-3 bg-gray-50 comic-border rounded-xl hover:bg-comicYellow/30 transition-colors group">
+                <span class="w-9 h-9 rounded-lg bg-comicRed text-white comic-border flex items-center justify-center text-base shadow-comic-sm">✉️</span>
+                <div>
+                  <span class="text-[11px] font-bold text-gray-500 uppercase block">EMAIL INBOX</span>
+                  <span class="text-xs sm:text-sm font-bold text-comicDark group-hover:text-comicRed">naufal.tri@example.com</span>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-gray-50 comic-border rounded-xl hover:bg-comicYellow/30 transition-colors group">
+                <span class="w-9 h-9 rounded-lg bg-comicBlue text-white comic-border flex items-center justify-center text-base shadow-comic-sm">💼</span>
+                <div>
+                  <span class="text-[11px] font-bold text-gray-500 uppercase block">LINKEDIN NETWORK</span>
+                  <span class="text-xs sm:text-sm font-bold text-comicDark group-hover:text-comicBlue">linkedin.com/in/naufal-tri</span>
+                </div>
+              </a>
+
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-gray-50 comic-border rounded-xl hover:bg-comicYellow/30 transition-colors group">
+                <span class="w-9 h-9 rounded-lg bg-comicDark text-white comic-border flex items-center justify-center text-base shadow-comic-sm">🐙</span>
+                <div>
+                  <span class="text-[11px] font-bold text-gray-500 uppercase block">CODE REPOSITORY</span>
+                  <span class="text-xs sm:text-sm font-bold text-comicDark group-hover:text-comicRed">github.com/naufaltri</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Circular Comic Badges Row -->
+          <div class="bg-comicYellow comic-border rounded-2xl p-6 shadow-comic text-center">
+            <h4 class="font-comic text-xl text-comicDark tracking-wide mb-4">HERO SOCIAL RADAR</h4>
+            
+            <div class="flex items-center justify-center gap-3 sm:gap-4">
+              <!-- GitHub Badge -->
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white comic-border flex items-center justify-center shadow-comic hover:shadow-comic-lg hover:-translate-y-1 hover:rotate-6 transition-all" title="GitHub">
+                <svg class="w-6 h-6 text-comicDark" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+
+              <!-- LinkedIn Badge -->
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white comic-border flex items-center justify-center shadow-comic hover:shadow-comic-lg hover:-translate-y-1 hover:-rotate-6 transition-all" title="LinkedIn">
+                <svg class="w-5 h-5 text-comicBlue" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+
+              <!-- Instagram / Art Badge -->
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white comic-border flex items-center justify-center shadow-comic hover:shadow-comic-lg hover:-translate-y-1 hover:rotate-6 transition-all" title="Instagram">
+                <svg class="w-5 h-5 text-comicRed" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+
+              <!-- Dribbble / UI Badge -->
+              <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white comic-border flex items-center justify-center shadow-comic hover:shadow-comic-lg hover:-translate-y-1 hover:-rotate-6 transition-all" title="Dribbble">
+                <span class="font-comic text-xl text-pink-600">🏀</span>
+              </a>
+            </div>
+            
+            <p class="text-xs font-bold text-comicDark mt-3">SURABAYA &bull; GMT+7 TIMEZONE</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="border-t-4 border-comicDark bg-white py-10 px-4 sm:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Copy -->
+      <div class="flex items-center gap-3">
+        <div class="bg-comicYellow comic-border px-3 py-1 rounded-lg shadow-comic-sm">
+          <span class="font-comic text-xl text-comicDark tracking-wider">NTR.DEV</span>
+        </div>
+        <div class="text-xs font-medium text-gray-600">
+          Crafted with <strong>Tailwind CSS</strong> & Graphic Novel passion. &copy; 2025 Naufal Tri Ramadhani.
+        </div>
+      </div>
+
+      <!-- Quick Back to Top Comic Capsule -->
+      <div>
+        <a href="#home" class="inline-flex items-center gap-2 bg-comicPaper comic-border px-4 py-2 rounded-xl text-comicDark font-comic text-base tracking-wider shadow-comic-sm hover:bg-comicYellow hover:-translate-y-0.5 transition-all">
+          <span>BACK TO THE TOP</span>
+          <span class="font-bold text-comicRed">&uarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- INTERACTIVE PROJECT MODAL (Comic Dialogue Box) -->
+  <!-- ======================================================== -->
+  <div id="project-modal" class="fixed inset-0 bg-comicDark/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-xl bg-white comic-border-thick rounded-3xl p-6 sm:p-8 shadow-comic-xl transform scale-95 transition-transform duration-300">
+      
+      <!-- Close Button -->
+      <button onclick="closeProjectModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-comicRed text-white comic-border font-comic text-lg flex items-center justify-center shadow-comic-sm hover:rotate-90 hover:bg-comicDark transition-all" aria-label="Close Modal">
+        &times;
+      </button>
+
+      <!-- Modal Comic Header -->
+      <div class="flex items-center gap-2 mb-2">
+        <span class="bg-comicYellow text-comicDark font-comic text-xs px-2.5 py-0.5 rounded comic-border">PROJECT FILE</span>
+        <span class="text-xs font-mono font-bold text-comicRed">DEEP DIVE SPEC</span>
+      </div>
+
+      <h3 id="modal-title" class="font-comic text-3xl sm:text-4xl text-comicDark tracking-wide mb-3">
+        PROJECT TITLE
+      </h3>
+
+      <div class="bg-comicPaper comic-border p-4 rounded-xl mb-4">
+        <p id="modal-desc" class="text-gray-700 text-sm leading-relaxed">
+          Detailed project breakdown...
+        </p>
+      </div>
+
+      <!-- Tech Stack Tags in Modal -->
+      <div class="mb-6">
+        <h4 class="font-comic text-base text-comicDark tracking-wide mb-2">TECHNOLOGY STACK:</h4>
+        <div id="modal-tags" class="flex flex-wrap gap-2">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Modal Actions -->
+      <div class="flex items-center justify-end gap-3 pt-2 border-t-2 border-dashed border-gray-200">
+        <button onclick="closeProjectModal()" class="px-5 py-2 rounded-xl comic-border text-comicDark font-comic text-lg hover:bg-gray-100 transition-colors">
+          DISMISS
+        </button>
+        <a id="modal-link" href="#" target="_blank" class="px-6 py-2 rounded-xl bg-comicYellow text-comicDark font-comic text-lg comic-border shadow-comic hover:shadow-comic-sm transition-all flex items-center gap-2">
+          <span>GITHUB REPO</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SCRIPTS: STICKY NAV, MODAL, AND TOAST -->
+  <!-- ======================================================== -->
+  <script>
+    // 1. Sticky Navbar styling transformation on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-comic', 'py-2.5');
+        navbar.classList.remove('py-4');
+      } else {
+        navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-comic', 'py-2.5');
+        navbar.classList.add('py-4');
+      }
+    });
+
+    // 2. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // 3. Project Detail Modal Handler
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalTags = document.getElementById('modal-tags');
+    const modalLink = document.getElementById('modal-link');
+
+    function openProjectModal(title, description, tags, link) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = description;
+      modalLink.href = link || '#';
+      
+      // Render Tech Badges
+      modalTags.innerHTML = '';
+      tags.forEach(tag => {
+        const badge = document.createElement('span');
+        badge.className = 'bg-white text-comicDark comic-border px-3 py-1 rounded-lg text-xs font-bold shadow-comic-sm';
+        badge.textContent = tag;
+        modalTags.appendChild(badge);
+      });
+
+      // Show Modal
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.firstElementChild.classList.remove('scale-95');
+      modal.firstElementChild.classList.add('scale-100');
+    }
+
+    function closeProjectModal() {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.firstElementChild.classList.remove('scale-100');
+      modal.firstElementChild.classList.add('scale-95');
+    }
+
+    // Close on backdrop click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeProjectModal();
+    });
+
+    // 4. Contact Form Submission Toast
+    function submitForm() {
+      const btn = document.getElementById('send-btn');
+      const toast = document.getElementById('form-toast');
+      const form = document.getElementById('comic-contact-form');
+      
+      btn.disabled = true;
+      btn.innerHTML = '<span>TRANSMITTING...</span> <span>⚡</span>';
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<span>SEND TRANSMISSION!</span> <span>🚀</span>';
+        toast.classList.remove('hidden');
+        form.reset();
+        
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 5000);
+      }, 700);
+    }
+  </script>
+</body>
+</html>
